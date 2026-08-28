@@ -248,12 +248,7 @@ The project was created in Code::Blocks using the following steps:
 4. Select `Project`.
 5. Select `Console Application`.
 6. Select `C++`.
-7. Set the project name to:
-
-```text
-HillRider
-```
-
+7. Set the project name to: `HillRider`
 8. Create the project.
 9. Open the generated `main.cpp`.
 10. Remove the default sample code.
@@ -318,25 +313,9 @@ depending on the project settings.
 
 # 11. How to Run the Project
 
-The project can be run directly from Code::Blocks. Press:
+The project can be run directly from Code::Blocks. Press: `F9`.
 
-```text
-F9
-```
-
-This builds and runs the program. The game window is created with the title:
-
-```text
-Hill Rider
-```
-
-The logical game window size is:
-
-```text
-1000 x 600
-```
-
-The jeep appears on the terrain and the game can start immediately. The game can also be started by opening the generated `.exe` file from the output folder. When running the `.exe` directly, `libfreeglut.dll` must be available to Windows.
+This builds and runs the program. The game window is created with the title `Hill Rider`. The logical game window size is 1000 x 600. The jeep appears on the terrain and the game can start immediately. The game can also be started by opening the generated `.exe` file from the output folder. When running the `.exe` directly, `libfreeglut.dll` must be available to Windows.
 
 ---
 
@@ -507,17 +486,7 @@ The car speed is changed according to the keyboard input. For the right arrow:
 speed += 0.12f;
 ```
 
-The forward speed is limited to:
-
-```text
-6.0
-```
-
-For the left arrow, the speed is reduced and can become negative up to:
-
-```text
--4.0
-```
+The forward speed is limited to 6.0. For the left arrow, the speed is reduced and can become negative up to -4.0. 
 
 The up arrow provides another acceleration:
 
@@ -531,25 +500,14 @@ The down arrow reduces the speed. The brake key applies stronger braking. The bo
 speed += 0.22f;
 ```
 
-and the maximum boost speed is:
-
-```text
-10.0
-```
-
+and the maximum boost speed is 10.0.
 When no movement key is pressed, the car gradually slows down instead of stopping immediately. This creates simple acceleration and deceleration behavior.
 
 ---
 
 # 17. Fuel System
 
-Fuel is an important part of the game. The initial fuel value is:
-
-```text
-100
-```
-
-Fuel decreases when the car is moving. The amount depends on the current speed:
+Fuel is an important part of the game. The initial fuel value is 100. Fuel decreases when the car is moving. The amount depends on the current speed:
 
 ```cpp
 fuel -= 0.018f * speed;
@@ -603,19 +561,7 @@ These functions manage the creation, drawing, and collection of coins. The colle
 
 # 20. Coin Milestones
 
-The game contains special coin milestones. The first milestone starts at:
-
-```text
-100 coins
-```
-
-The next important milestone is:
-
-```text
-300 coins
-```
-
-When a coin milestone is reached, the game:
+The game contains special coin milestones. The first milestone starts at 100 coins. The next important milestone is 300 coins. When a coin milestone is reached, the game:
 
 * Adds bonus coins.
 * Restores fuel to 100.
@@ -625,13 +571,7 @@ When a coin milestone is reached, the game:
 For the 100 and 300 coin milestones, a bonus message is displayed.
 For example:
 
-```text
-100 COINS BONUS!
-```
-or:
-```text
-300 COINS BONUS!
-```
+`100 COINS BONUS!` or `300 COINS BONUS!`
 
 The function responsible for this is:
 
@@ -651,13 +591,7 @@ The travelled distance is calculated from the car's position. The calculation is
 distanceTravelled = (carX - 350.0f) * 0.05f;
 ```
 
-The value is prevented from becoming negative. The HUD displays the current distance. The game also has a target distance.
-Initially:
-
-```text
-Target = 300m
-```
-
+The value is prevented from becoming negative. The HUD displays the current distance. The game also has a target distance. Initially:  Target = 300m.
 When the player reaches the current target, another 300 meters is added:
 
 ```cpp
@@ -676,28 +610,16 @@ Distance milestones are checked by:
 checkDistanceMilestones()
 
 ```
-The first distance milestone is:
 
-```text
-1000m
-```
-
-After reaching a milestone, the next milestone is increased by:
-```text
-1000m
-```
-
-At each distance milestone:
+The first distance milestone is 1000m. After reaching a milestone, the next milestone is increased by 1000m. At each distance milestone:
 
 * 30 seconds are added.
 * Fuel is restored to 100.
 * Sparkle effects are created.
 * A milestone message is displayed.
 
-For example:
-```text
-1000m MILESTONE! +30s
-```
+For example: `1000m MILESTONE! +30s`
+
 The message is displayed using the bonus popup system.
 
 ---
@@ -1147,12 +1069,7 @@ The HUD is drawn using screen coordinates instead of world coordinates. This mea
 
 # 39. Fuel Bar
 
-The fuel bar is drawn using OpenGL quadrilaterals. The current fuel value is first limited between:
-
-```text
-0 and 100
-```
-
+The fuel bar is drawn using OpenGL quadrilaterals. The current fuel value is first limited between 0 and 100.
 The width of the filled part is calculated from the fuel percentage. When fuel is above 25 percent, the bar is shown normally. When fuel is 25 percent or lower, the bar flashes. The flashing is controlled using:
 
 ```cpp
@@ -1171,86 +1088,34 @@ The HUD also contains a progress bar for the current target. The progress is cal
 progress = distanceTravelled / targetDistance;
 ```
 
-The value is limited between:
-
-```text
-0 and 1
-```
-
-A small circle is drawn on the progress line to show the current progress. The progress bar and other text are positioned around the center of the screen.
+The value is limited between 0 and 1. A small circle is drawn on the progress line to show the current progress. The progress bar and other text are positioned around the center of the screen.
 
 ---
 
 # 41. Time System
 
-The game starts with:
-
-```text
-60 seconds
-```
-
-The timer decreases approximately every 16 milliseconds:
+The game starts with `60 seconds`. The timer decreases approximately every 16 milliseconds:
 
 ```cpp
 timeLeft -= 0.016f;
 ```
 
-The remaining time is displayed on the HUD. The time color changes when the remaining time becomes low. If the time is:
-
-```text
-More than 20 seconds
-```
-
-the normal HUD color is used. When the time is:
-
-```text
-20 seconds or less
-```
-
-the time becomes more noticeable. When the time reaches:
-
-```text
-10 seconds or less
-```
-
-a warning color is used. If the time reaches zero before the target distance is reached, the game ends.
+The remaining time is displayed on the HUD. The time color changes when the remaining time becomes low. If the time is `More than 20 seconds`, the normal HUD color is used. When the time is `20 seconds or less`, the time becomes more noticeable. When the time reaches `10 seconds or less`, a warning color is used. If the time reaches zero before the target distance is reached, the game ends.
 
 ---
 
 # 42. Game Over System
 
-The game has a separate game over state. The main variables are:
-
-```cpp
-gameOver
-timeUp
-```
-
+The game has a separate game over state. The main variables are `gameOver` and `timeUp`.
 The function:
 
 ```cpp
 triggerGameOver(bool timedOut)
 ```
 
-is responsible for ending the game. If the player reaches a new high score, it is stored in:
+is responsible for ending the game. If the player reaches a new high score, it is stored in `highScore`.
 
-```cpp
-highScore
-```
-
-The game over screen displays:
-
-```text
-GAME OVER
-```
-
-or:
-
-```text
-TIME UP! GAME OVER
-```
-
-depending on the reason for ending. It also displays:
+The game over screen displays: `GAME OVER` or `TIME UP! GAME OVER` depending on the reason for ending. It also displays:
 
 * Final distance
 * Best distance
@@ -1283,23 +1148,13 @@ If:
 timeLeft <= 0.0f
 ```
 
-and the player has not reached the current target distance, the game ends because time has finished. The message becomes:
-
-```text
-TIME UP! GAME OVER
-```
+and the player has not reached the current target distance, the game ends because time has finished. The message becomes `TIME UP! GAME OVER`.
 
 ---
 
 # 44. Restart System
 
-The game can be restarted by pressing:
-
-```text
-R
-```
-
-The restart code resets the main game values.
+The game can be restarted by pressing `R`. The restart code resets the main game values.
 
 For example:
 
@@ -1509,12 +1364,7 @@ gluOrtho2D(
 );
 ```
 
-This makes it easier to use screen-like coordinates for the 2D game. The window size is:
-
-```text
-1000 x 600
-```
-
+This makes it easier to use screen-like coordinates for the 2D game. The window size is 1000 x 600.
 The `reshape()` function also resets the viewport and projection if the window is resized.
 
 ---
@@ -1594,8 +1444,6 @@ The main features of the game are:
 
 # 55. Preview of the Output
 
-The following screenshots should be added to the repository to show the final output.
-
 ## Starting Screen Screenshot
 
 ![Hill Rider Starting screen](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/starting_screen.PNG)
@@ -1610,9 +1458,9 @@ The following screenshots should be added to the repository to show the final ou
 
 ## GIF
 
-A short GIF was also  added to show the jeep moving, collecting objects, and interacting with the terrain.
+A short GIF was also added to show the jeep moving, collecting objects, and interacting with the terrain.
 
-![Gameplay GIF]([screenshots/gameplay.gif](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/hillrider.gif))
+![Gameplay GIF](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/hillrider.gif)
 
 ---
 
