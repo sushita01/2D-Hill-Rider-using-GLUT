@@ -371,10 +371,7 @@ void keyboard(unsigned char key, int x, int y)
 
 handles normal keys. The following keys are used:
 `
-B / b
-S / s
-R / r
-ESC
+B / b , S / s , R / r , ESC
 `
 
 1. The `B` key activates the brake.
