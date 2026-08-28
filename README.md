@@ -3,11 +3,17 @@
 ## 1. Project Information
 
 **Project Name:** 2D Hill Rider using GLUT
+
 **Project Type:** 2D Graphics Lab Game Project
+
 **Programming Language:** C++
+
 **Graphics Library:** OpenGL with FreeGLUT
+
 **Development Environment:** Code::Blocks with MinGW
+
 **Operating System:** Windows
+
 **Window Size:** 1000 x 600 pixels
 
 ---
@@ -436,10 +442,13 @@ The project uses GLUT keyboard callbacks.
 ## 15.1 Normal Keyboard
 
 The function:
+
 ```cpp
 void keyboard(unsigned char key, int x, int y)
 ```
+
 handles normal keys. The following keys are used:
+
 ```text
 B / b
 S / s
@@ -455,20 +464,25 @@ ESC
 ## 15.2 Keyboard Release
 
 The function:
+
 ```cpp
 void keyboardUp(unsigned char key, int x, int y)
 ```
+
 sets the brake and boost states to false when the keys are released.
 
 ## 15.3 Arrow Keys
 
 The function:
+
 ```cpp
 void specialKeyDown(int key, int x, int y)
 ```
+
 handles the arrow keys.
 
 The corresponding boolean variables are changed:
+
 ```text
 rightKey
 leftKey
@@ -477,6 +491,7 @@ downKey
 ```
 
 The function:
+
 ```cpp
 void specialKeyUp(int key, int x, int y)
 ```
@@ -487,31 +502,37 @@ sets these variables back to false when the keys are released. This allows the g
 # 16. Car Speed and Movement
 
 The car speed is changed according to the keyboard input. For the right arrow:
+
 ```cpp
 speed += 0.12f;
 ```
 
 The forward speed is limited to:
+
 ```text
 6.0
 ```
 
 For the left arrow, the speed is reduced and can become negative up to:
+
 ```text
 -4.0
 ```
 
 The up arrow provides another acceleration:
+
 ```cpp
 speed += 0.08f;
 ```
 
 The down arrow reduces the speed. The brake key applies stronger braking. The boost key increases speed by:
+
 ```cpp
 speed += 0.22f;
 ```
 
 and the maximum boost speed is:
+
 ```text
 10.0
 ```
@@ -541,9 +562,11 @@ fuel -= 0.040f * speed;
 ```
 
 Fuel is limited so that it cannot become negative. The HUD displays the fuel percentage. The fuel bar also changes when fuel becomes low. When fuel is at or below 25 percent, the fuel bar flashes. If fuel reaches zero:
+
 ```cpp
 triggerGameOver(false);
 ```
+
 is called and the game ends.
 
 ---
@@ -551,12 +574,14 @@ is called and the game ends.
 # 18. Fuel Pickups
 
 The game also contains fuel pickup objects. The project uses functions for the fuel system such as:
+
 ```cpp
 initializeFuel()
 updateFuelSpawning()
 checkFuelPickups()
 drawFuelPickups()
 ```
+
 These functions are responsible for creating fuel pickups, checking them during gameplay, and drawing them on the screen. Fuel pickups allow the player to continue travelling without depending only on the starting fuel.
 
 ---
@@ -579,11 +604,13 @@ These functions manage the creation, drawing, and collection of coins. The colle
 # 20. Coin Milestones
 
 The game contains special coin milestones. The first milestone starts at:
+
 ```text
 100 coins
 ```
 
 The next important milestone is:
+
 ```text
 300 coins
 ```
@@ -597,6 +624,7 @@ When a coin milestone is reached, the game:
 
 For the 100 and 300 coin milestones, a bonus message is displayed.
 For example:
+
 ```text
 100 COINS BONUS!
 ```
@@ -606,6 +634,7 @@ or:
 ```
 
 The function responsible for this is:
+
 ```cpp
 checkCoinMilestones()
 ```
@@ -617,17 +646,23 @@ The milestone system continues to increase the next milestone after each reward.
 # 21. Distance System
 
 The travelled distance is calculated from the car's position. The calculation is:
+
 ```cpp
 distanceTravelled = (carX - 350.0f) * 0.05f;
 ```
+
 The value is prevented from becoming negative. The HUD displays the current distance. The game also has a target distance.
 Initially:
+
 ```text
 Target = 300m
 ```
+
 When the player reaches the current target, another 300 meters is added:
+
 ```cpp
 targetDistance += 300.0f;
+
 ```
 Therefore, the target continues to increase as the player progresses.
 
@@ -636,17 +671,22 @@ Therefore, the target continues to increase as the player progresses.
 # 22. Distance Milestones
 
 Distance milestones are checked by:
+
 ```cpp
 checkDistanceMilestones()
+
 ```
 The first distance milestone is:
+
 ```text
 1000m
 ```
+
 After reaching a milestone, the next milestone is increased by:
 ```text
 1000m
 ```
+
 At each distance milestone:
 
 * 30 seconds are added.
@@ -665,6 +705,7 @@ The message is displayed using the bonus popup system.
 # 23. Terrain System
 
 The game is based on a hilly terrain. The car does not simply move on a flat surface. Its vertical position and rotation depend on the terrain under its wheels. The project uses terrain functions such as:
+
 ```cpp
 getTerrainHeight()
 getBaseTerrainHeight()
