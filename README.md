@@ -78,12 +78,12 @@ The following software and libraries are required to build and run the project:
 The source code uses the following headers:
 `
 #include <windows.h>
-#include <GL/glut.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <string>
+    #include <GL/glut.h>
+    #include <math.h>
+    #include <stdlib.h>
+    #include <stdio.h>
+    #include <string.h>
+    #include <string>
 `
 
 ## 6.1 `windows.h`
@@ -148,8 +148,8 @@ freeglut-mingw-3.8.0.zip
 After extracting the package, the main folders are:
 `
 bin
-include
-lib
+   include
+   lib
 `
 
 ## 7.1 Extract FreeGLUT
@@ -400,9 +400,9 @@ handles the arrow keys.
 The corresponding boolean variables are changed:
 `
 rightKey
-leftKey
-upKey
-downKey
+    leftKey
+    upKey
+    downKey
 `
 
 The function:
@@ -463,9 +463,9 @@ is called and the game ends.
 The game also contains fuel pickup objects. The project uses functions for the fuel system such as:
 `
 initializeFuel()
-updateFuelSpawning()
-checkFuelPickups()
-drawFuelPickups()
+     updateFuelSpawning()
+     checkFuelPickups()
+     drawFuelPickups()
 `.
 
 These functions are responsible for creating fuel pickups, checking them during gameplay, and drawing them on the screen. Fuel pickups allow the player to continue travelling without depending only on the starting fuel.
@@ -477,9 +477,9 @@ These functions are responsible for creating fuel pickups, checking them during 
 Coins are collected during the game. The coin system contains functions such as:
 `
 initializeCoins()
-updateCoinSpawning()
-checkCoins()
-drawCoins()
+     updateCoinSpawning()
+     checkCoins()
+     drawCoins()
 `.
 
 These functions manage the creation, drawing, and collection of coins. The collected coin count is shown on the HUD. The coin icon is drawn near the left side of the screen and the current number of collected coins is displayed beside it.
@@ -551,8 +551,8 @@ The message is displayed using the bonus popup system.
 The game is based on a hilly terrain. The car does not simply move on a flat surface. Its vertical position and rotation depend on the terrain under its wheels. The project uses terrain functions such as:
 `
 getTerrainHeight()
-getBaseTerrainHeight()
-sampleGroundUnderWheel()
+     getBaseTerrainHeight()
+     sampleGroundUnderWheel()
 `.
 
 These functions are used to find the terrain height at different world positions. The car uses two wheels which are Left Wheel and Right Wheel. The terrain height under both wheels is checked separately. The average of these values is used to determine the car's vertical position.
@@ -584,9 +584,9 @@ The car has simple vertical physics.
 The program calculates:
 `
 desiredY
-currentY
-carVerticalVelocity
-carVerticalOffset
+     currentY
+     carVerticalVelocity
+     carVerticalOffset
 `
 
 The desired car height is based on the average ground position:
@@ -613,9 +613,9 @@ This gives the car a small bouncing and suspension effect while moving over the 
 The car rotation is calculated from the difference between the left and right wheel ground heights. The slope angle is calculated using:
 `
 atan2(
-    rightGround - leftGround,
-    2.0f * wheelDistance
-)
+         rightGround - leftGround,
+         2.0f * wheelDistance
+     )
 `
 
 This value is converted from radians to degrees. When the car is on the ground, its rotation gradually moves toward the terrain slope:
@@ -633,7 +633,7 @@ This makes the car follow the hill angle.
 The game also checks whether the car is in the air. If the vertical offset becomes large:
 `
 if (carVerticalOffset > 7.0f)
-    carInAir = true;
+          carInAir = true;
 `
 
 When the car comes close to the ground and its vertical velocity becomes small, it is considered to be on the ground again. While the car is in the air, its rotation changes according to the speed:
@@ -716,12 +716,12 @@ screenX = worldX - cameraX;
 The game includes bridge sections. The bridge system uses functions such as:
 `
 initializeBridges()
-updateBridgePhysics()
-drawBridges()
-drawBridgeGaps()
-isBridgeGap()
-getBridgeHeight()
-getBridgeWheelClearance()
+   updateBridgePhysics()
+   drawBridges()
+   drawBridgeGaps()
+   isBridgeGap()
+   getBridgeHeight()
+   getBridgeWheelClearance()
 `.
 
 These functions are used to create and draw bridge areas and to provide special height information for the car wheels. When a wheel is above a bridge gap, the program uses the bridge height instead of the normal terrain height. This allows the car to travel through areas where the normal terrain is interrupted.
@@ -742,10 +742,8 @@ const float milestoneSpacing = 750.0f;
 
 The sign displays a distance value such as:
 `
-750m
-1500m
-2250m
-`. 
+750m 1500m 2250m
+`etc. 
 
 The sign is skipped if its position is inside a bridge gap. The sign contains a wooden post, a rectangular sign board, and distance text. This sign is in the code but not shown in window screen.
 
@@ -780,23 +778,23 @@ drawSparkleParticles()
 
 The sparkle particle system uses arrays to store information about each particle. The particle system keeps values such as:
 `
-X position
-Y position
-X velocity
-Y velocity
-Life
-Maximum life
-Size
-Red value
-Green value
-Blue value
-Active state
+X position,
+ Y position,
+ X velocity.
+ Y velocity,
+ Life,
+ Maximum life,
+ Size,
+ Red value,
+ Green value,
+ Blue value,
+ Active state
 `
 
 Only active particles are updated. The particle position changes according to its velocity:
 `
 sparkleX[i] += sparkleVX[i];
-sparkleY[i] += sparkleVY[i];
+   sparkleY[i] += sparkleVY[i];
 `
 
 The vertical velocity is also changed:
@@ -807,7 +805,7 @@ sparkleVY[i] -= 0.06f;
 Velocity damping is applied:
 `
 sparkleVX[i] *= 0.95f;
-sparkleVY[i] *= 0.97f;
+   sparkleVY[i] *= 0.97f;
 `
 
 The particle life decreases over time. When the life reaches zero, the particle becomes inactive. The particle transparency depends on its remaining life.
@@ -824,9 +822,9 @@ fabs(speed) > 1.5f
 and also checks that the car is not in the air. When these conditions are true, dust particles are created near both wheels. The functions used for this system include:
 `
 initializeDust()
-spawnDustParticle()
-updateDustParticles()
-drawDustParticles()
+  spawnDustParticle()
+  updateDustParticles()
+  drawDustParticles()
 `
 
 This gives a visual effect while the jeep is travelling on the terrain.
@@ -838,9 +836,9 @@ This gives a visual effect while the jeep is travelling on the terrain.
 The game has a floating text system for displaying short messages. The main functions are:
 `
 initializeFloatingTexts()
-spawnFloatingText()
-updateFloatingTexts()
-drawFloatingTexts()
+   spawnFloatingText()
+   updateFloatingTexts()
+   drawFloatingTexts()
 `
 
 Each floating text has:
@@ -974,12 +972,12 @@ If `timeLeft <= 0.0f` and the player has not reached the current target distance
 The game can be restarted by pressing `R`. The restart code resets the main game values. For example:
 `
 carX = 350.0f;
-speed = 0.0f;
-cameraX = 0.0f;
-fuel = 100.0f;
-distanceTravelled = 0.0f;
-timeLeft = 60.0f;
-targetDistance = 300.0f;
+  speed = 0.0f;
+  cameraX = 0.0f;
+  fuel = 100.0f;
+  distanceTravelled = 0.0f;
+  timeLeft = 60.0f;
+  targetDistance = 300.0f;
 `
 
 It also resets:
@@ -1067,9 +1065,9 @@ glEnable(GL_BLEND);
 
 and the blending function is:
 `
-glBlendFunc(
-    GL_SRC_ALPHA,
-    GL_ONE_MINUS_SRC_ALPHA
+glBlendFunc(  
+        GL_SRC_ALPHA,
+        GL_ONE_MINUS_SRC_ALPHA
 );
 `
 
@@ -1091,8 +1089,8 @@ Alpha values are used to control transparency.
 The program enables several OpenGL smoothing features:
 `
 glEnable(GL_LINE_SMOOTH);
-glEnable(GL_POLYGON_SMOOTH);
-glEnable(GL_POINT_SMOOTH);
+      glEnable(GL_POLYGON_SMOOTH);
+      glEnable(GL_POINT_SMOOTH);
 `
 
 The project also uses:
@@ -1119,16 +1117,16 @@ glClear(GL_COLOR_BUFFER_BIT);
 Then the game objects are drawn in a specific order:
 `
 Sky
-Bridge gaps
-Terrain
-Bridges
-Coins
-Fuel pickups
-Dust particles
-Car
-Sparkle particles
-Floating texts
-HUD
+    Bridge gaps
+    Terrain
+    Bridges
+   Coins
+   Fuel pickups
+   Dust particles
+   Car
+   Sparkle particles
+   Floating texts
+   HUD
 `
 
 This drawing order is important because objects drawn later can appear in front of earlier objects. Finally, the double-buffered display is updated using:
@@ -1143,11 +1141,11 @@ glutSwapBuffers();
 The project uses a 2D orthographic projection. The projection is created using:
 `
 gluOrtho2D(
-    0,
-    WINDOW_WIDTH,
-    0,
-    WINDOW_HEIGHT
-);
+        0,
+        WINDOW_WIDTH,
+        0,
+         WINDOW_HEIGHT
+     );
 `
 
 This makes it easier to use screen-like coordinates for the 2D game. The window size is 1000 x 600.
@@ -1175,17 +1173,17 @@ The `main()` function starts GLUT. It performs the following steps:
 Important GLUT functions used include:
 `
 glutInit()
-glutInitDisplayMode()
-glutInitWindowSize()
-glutCreateWindow()
-glutDisplayFunc()
-glutKeyboardFunc()
-glutKeyboardUpFunc()
-glutSpecialFunc()
-glutSpecialUpFunc()
-glutReshapeFunc()
-glutTimerFunc()
-glutMainLoop()
+      glutInitDisplayMode()
+      glutInitWindowSize()
+     glutCreateWindow()
+     glutDisplayFunc()
+    glutKeyboardFunc()
+    glutKeyboardUpFunc()
+   glutSpecialFunc()
+   glutSpecialUpFunc()
+   glutReshapeFunc()
+   glutTimerFunc()
+   glutMainLoop()
 `
 
 ---
