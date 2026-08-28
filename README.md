@@ -3,96 +3,166 @@
 ## 1. Project Information
 
 **Project Name:** 2D Hill Rider using GLUT
-**Project Type:** 2D Graphics and Interactive Game
+**Project Type:** 2D Graphics Lab Game Project
 **Programming Language:** C++
-**Graphics Library:** OpenGL with GLUT
+**Graphics Library:** OpenGL with FreeGLUT
 **Development Environment:** Code::Blocks with MinGW
-**Platform:** Windows
-
-### Group Members
-
-- Member 1: Sushita Roy Chowdhury (ID: 233001412) 
-- Member 2: Samiha Firoze (ID: 233025212)
-
-## 2. Introduction
-
-2D Hill Rider using GLUT is a small 2D driving game developed as a Graphics Lab Group Project.
-
-The main idea of the project is to control a car moving through a hilly environment. The player needs to move the car forward, collect coins, collect fuel, cross bridges, and travel as far as possible before the fuel or time runs out.
-
-The project is made using C++ and OpenGL/GLUT. The graphics are drawn using OpenGL primitives such as polygons, quads, triangles, lines, circles, and text.
-
-The project includes animation, keyboard interaction, moving objects, camera movement, simple vehicle physics, particle effects, fuel and coin systems, distance milestones, a progress indicator, and a game-over system.
-
-The purpose of this project is to demonstrate the use of GLUT and OpenGL concepts through an interactive 2D application.
+**Operating System:** Windows
+**Window Size:** 1000 x 600 pixels
 
 ---
 
-# 3. Main Objectives
+## 2. Group Members
+
+- Member 1: Sushita Roy Chowdhury (ID: 233001412) 
+- Member 2: Athkia Tabassum Chowdhury (ID: 233025212)
+
+---
+
+# 3. Project Introduction
+
+2D Hill Rider using GLUT is a simple 2D driving game that was created as a graphics lab group project. This driving game is about the player driving a jeep over a hilly terrain. The player needs to travel as far as possible while managing fuel and time. The game includes hills, bridges, coins, fuel pickups, distance milestones, particle effects, moving camera, animated wheels, and a game over system. The project was developed using C++ with OpenGL and FreeGLUT. The majority of the objects within the game are created using basic OpenGL shapes like polygons, quads, circles, lines and triangles. The primary goal of the project is to show how 2D computer graphics concepts are applied together with animation, keyboard input, transformations, and some basic physics of the game.
+
+---
+
+# 4. Objectives of the Project
 
 The main objectives of this project are:
 
-1. To create an interactive 2D game using GLUT.
-2. To draw the game environment using OpenGL primitives.
-3. To create a moving car controlled by the keyboard.
-4. To implement simple car movement and physics.
-5. To create hills and uneven terrain.
-6. To add coins and fuel pickups.
-7. To add bridges and bridge gaps.
-8. To implement camera movement following the car.
-9. To add particle effects such as dust and sparkles.
-10. To add floating text and milestone messages.
-11. To create a fuel and time based game system.
-12. To display game information through a HUD.
-13. To implement a game-over and restart system.
-
----
-
-# 4. Tools and Technologies Used
-
-The following tools and technologies were used:
-
-* C++
-* OpenGL
-* GLUT / FreeGLUT
-* Code::Blocks
-* MinGW
-* Windows
-* OpenGL immediate mode drawing functions
-
-The program uses the GLUT library for creating the window, receiving keyboard input, and running the main game loop.
+* To create a 2D game using OpenGL and GLUT.
+* To understand how a GLUT window and game loop work.
+* To draw a complete vehicle using basic OpenGL shapes.
+* To create a moving hilly terrain.
+* To implement keyboard-based vehicle control.
+* To add simple car movement and physics.
+* To use rotation and translation transformations.
+* To create a scrolling camera system.
+* To implement coins and fuel pickups.
+* To add time and fuel management.
+* To create milestone rewards.
+* To use particle effects for visual feedback.
+* To display game information through a HUD.
+* To implement a game over and restart system.
 
 ---
 
 # 5. Development Environment
 
-The project was developed using Code::Blocks with the MinGW compiler.
-
-The FreeGLUT package used for the project is the MinGW version.
-
-The FreeGLUT package contains:
-
-* `include` files for OpenGL/GLUT headers
-* `lib` files required during compilation
-* `bin` files containing the required DLL
-
-The project uses:
+The project was developed using Code::Blocks with the MinGW C++ compiler on Windows. The project uses OpenGL and FreeGLUT for creating the game window, drawing the 2D objects, handling keyboard input, and controlling the animation. The main OpenGL or GLUT header used in the program is:
 
 ```cpp
 #include <GL/glut.h>
 ```
 
-This header provides the GLUT and OpenGL functions used in the program.
+The project was created as a C++ Console Application in Code::Blocks. The main source code is stored in:
+
+```text
+main.cpp
+```
+---
+
+# 6. Dependencies
+
+The following software and libraries are required to build and run the project:
+
+* Windows operating system
+* Code::Blocks
+* MinGW C++ compiler
+* OpenGL
+* FreeGLUT
+* FreeGLUT header files
+* FreeGLUT library files
+* FreeGLUT DLL
+
+The source code uses the following headers:
+
+```cpp
+#include <windows.h>
+#include <GL/glut.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <string>
+```
+
+## 6.1 `windows.h`
+
+This header is used for Windows-related definitions required by the OpenGL and GLUT setup.
+
+## 6.2 `GL/glut.h`
+
+This is the main GLUT header used by the project. It provides the GLUT and OpenGL functions used for creating the window, drawing objects, keyboard input, and the main program loop.
+
+## 6.3 `math.h`
+
+This header is used for mathematical functions such as:
+
+```cpp
+sin()
+cos()
+atan2()
+fabs()
+floor()
+ceil()
+fmod()
+```
+
+These functions are used in terrain calculations, wheel drawing, car rotation, animation, and physics.
+
+## 6.4 `stdlib.h`
+
+This header provides functions such as:
+
+```cpp
+rand()
+srand()
+exit()
+```
+
+Random number generation is used for different game elements and effects.
+
+## 6.5 `stdio.h`
+
+This header is used for `sprintf()`. It is used to create text displayed in the game, for example:
+
+```text
+TIME: 42s
+```
+
+and:
+
+```text
+300m
+```
+
+## 6.6 `string.h`
+
+This header is used for `strncpy()`. It is used when copying text into fixed-size character arrays for floating messages and bonus messages.
+
+## 6.7 `string`
+
+The C++ `string` library provides `std::string`. It is used by the floating text system so that messages can be passed easily to:
+
+```cpp
+spawnFloatingText()
+```
 
 ---
 
-# 6. FreeGLUT Setup on Windows
+# 7. FreeGLUT Setup on Windows
 
-Before building the project, FreeGLUT needs to be configured with Code::Blocks and MinGW.
+FreeGLUT needs to be configured before building the project. A MinGW-compatible FreeGLUT package can be downloaded from:
 
-A MinGW-compatible FreeGLUT package can be used for this purpose.
+https://www.songho.ca/opengl/gl_freeglut.html
 
-After extracting the FreeGLUT package, the required folders are:
+The package used for this setup is:
+
+```text
+freeglut-mingw-3.8.0.zip
+```
+
+After extracting the package, the main folders are:
 
 ```text
 bin
@@ -100,67 +170,71 @@ include
 lib
 ```
 
-## 6.1 Copying the Header Files
+## 7.1 Extract FreeGLUT
 
-Open:
+Extract the ZIP file to an easy location, for example:
 
 ```text
-freeglut\include\GL\
+C:\freeglut
 ```
 
-Copy the required files into the MinGW OpenGL include folder:
+## 7.2 Copy Header Files
+
+1. Open:
+
+```text
+C:\freeglut\include\GL\
+```
+
+2. Copy the required files to:
 
 ```text
 C:\Program Files\CodeBlocks\MinGW\x86_64-w64-mingw32\include\GL\
 ```
 
-If the `GL` folder does not exist, it can be created manually.
+If the `GL` folder does not exist, create it.
 
-## 6.2 Copying the Library Files
+## 7.3 Copy Library Files
 
-Open the x64 library folder:
+1. Open:
 
 ```text
-freeglut\lib\x64\
+C:\freeglut\lib\x64\
 ```
 
-Copy the required library files into:
+2. Copy the required library files to:
 
 ```text
 C:\Program Files\CodeBlocks\MinGW\x86_64-w64-mingw32\lib\
 ```
 
-## 6.3 FreeGLUT DLL
+## 7.4 Copy FreeGLUT DLL
 
-The program also needs the FreeGLUT DLL when running.
-
-The DLL can be found in:
+1. Open:
 
 ```text
-freeglut\bin\x64\
+C:\freeglut\bin\x64\
 ```
 
-The required file is:
+2. Find:
 
 ```text
 libfreeglut.dll
 ```
 
-The DLL can be placed in:
+3. For the Windows setup used during development, the DLL can be copied to:
 
 ```text
 C:\Windows\System32\
 ```
 
-Alternatively, for a repository-based project, the DLL can be placed beside the generated executable so that Windows can find it when the program starts.
+Another option is to place the DLL beside the generated `.exe` file. The DLL is required when the program starts.
 
 ---
 
-# 7. Code::Blocks Project Setup
+# 8. Creating the Code::Blocks Project
 
-The project was created in Code::Blocks as a C++ Console Application.
-
-The basic project creation process is:
+The project was created in Code::Blocks using the following steps:
 
 1. Open Code::Blocks.
 2. Select `File`.
@@ -168,7 +242,7 @@ The basic project creation process is:
 4. Select `Project`.
 5. Select `Console Application`.
 6. Select `C++`.
-7. Give the project name:
+7. Set the project name to:
 
 ```text
 HillRider
@@ -176,26 +250,25 @@ HillRider
 
 8. Create the project.
 9. Open the generated `main.cpp`.
-10. Replace the default code with the project source code.
-11. Configure the FreeGLUT/OpenGL libraries.
-12. Build and run the project.
+10. Remove the default sample code.
+11. Add the complete Hill Rider source code.
+12. Configure the required FreeGLUT and OpenGL libraries.
 
 ---
 
-# 8. Linker Settings
+# 9. Linker Settings
 
-The required libraries are added in Code::Blocks.
+The required libraries are added in Code::Blocks. 
 
-Go to:
+1. Go to:
 
 ```text
 Settings
-    -> Compiler
-        -> Linker Settings
-            -> Other linker options
+-> Compiler
+-> Linker Settings
 ```
 
-The following linker options are used:
+2. Add the following options under `Other linker options`:
 
 ```text
 -lfreeglut
@@ -203,36 +276,20 @@ The following linker options are used:
 -lglu32
 ```
 
-These libraries provide the required GLUT, OpenGL, and GLU functionality.
-
----
-
-# 9. Dependencies
-
-The project requires:
-
-* Windows operating system
-* Code::Blocks
-* MinGW compiler
-* OpenGL
-* FreeGLUT
-* `GL/glut.h`
-* FreeGLUT library files
-* FreeGLUT DLL
-
-The program will not build correctly if the required OpenGL/FreeGLUT header and library files are missing.
+These libraries are required for the FreeGLUT, OpenGL, and GLU functions used by the project.
 
 ---
 
 # 10. How to Build the Project
 
-After the project is configured:
+After FreeGLUT has been configured, the project can be built from Code::Blocks.
 
-1. Open the `HillRider` project in Code::Blocks.
+1. Open the `HillRider` project.
 2. Open `main.cpp`.
-3. Make sure FreeGLUT and OpenGL are configured.
-4. Make sure the linker options are present.
-5. Select:
+3. Make sure the complete source code is present.
+4. Check the FreeGLUT setup.
+5. Check the linker settings.
+6. Select:
 
 ```text
 Build -> Build
@@ -244,758 +301,725 @@ or press:
 Ctrl + F9
 ```
 
-If there are no compilation errors, the executable will be generated.
+If there are no compilation errors, Code::Blocks will generate the executable file. The executable is normally generated inside a folder such as:
+
+```text
+bin\Debug\
+```
+depending on the project settings.
 
 ---
 
 # 11. How to Run the Project
 
-To run the game from Code::Blocks:
-
-1. Open the project.
-2. Build the project.
-3. Press `F9` or select:
+The project can be run directly from Code::Blocks. Press:
 
 ```text
-Build -> Build and Run
+F9
 ```
 
-The game window will open.
-
-The title of the window is:
+This builds and runs the program. The game window is created with the title:
 
 ```text
 Hill Rider
 ```
 
----
-
-# 12. Game Overview
-
-The player controls a red car in a 2D hilly environment.
-
-The car starts at approximately:
+The logical game window size is:
 
 ```text
-X = 350
+1000 x 600
 ```
 
-The player can accelerate, move backward, brake, and use boost.
-
-The terrain is not flat. The car moves over hills and slopes, and the car body changes its angle according to the terrain.
-
-The camera follows the car as it moves forward.
-
-The player also needs to manage:
-
-* Fuel
-* Time
-* Distance
-* Coins
-* Milestones
-
-The game ends when the fuel becomes empty or when the available time finishes before reaching the current target distance.
+The jeep appears on the terrain and the game can start immediately. The game can also be started by opening the generated `.exe` file from the output folder. When running the `.exe` directly, `libfreeglut.dll` must be available to Windows.
 
 ---
 
-# 13. Game Controls
+# 12. Game Controls
 
-| Key         | Function                |
-| ----------- | ----------------------- |
-| Right Arrow | Move/accelerate forward |
-| Left Arrow  | Move backward           |
-| Up Arrow    | Additional acceleration |
-| Down Arrow  | Slow down               |
-| B           | Brake                   |
-| S           | Boost                   |
-| R           | Restart the game        |
-| ESC         | Exit the game           |
+The game uses both normal keyboard keys and arrow keys.
 
-The arrow keys are handled through GLUT special-key callbacks.
+| Key         | Action                                  |
+| ----------- | --------------------------------------- |
+| Right Arrow | Move forward                            |
+| Left Arrow  | Move backward                           |
+| Up Arrow    | Increase speed                          |
+| Down Arrow  | Brake                                   |
+| B           | Brake                                   |
+| S           | Boost                                   |
+| R           | Restart the game                        |
+| ESC         | Exit the game                           |
 
-The `B` and `S` keys are handled through normal keyboard callbacks.
-
----
-
-# 14. GLUT Keyboard Handling
-
-The program uses GLUT keyboard callback functions.
-
-The following functions are used:
-
-```cpp
-keyboard()
-keyboardUp()
-specialKeyDown()
-specialKeyUp()
-```
-
-The arrow keys are detected using:
-
-```cpp
-GLUT_KEY_RIGHT
-GLUT_KEY_LEFT
-GLUT_KEY_UP
-GLUT_KEY_DOWN
-```
-
-Boolean variables such as:
-
-```cpp
-rightKey
-leftKey
-upKey
-downKey
-brakeKey
-boostKey
-```
-
-store the current keyboard state.
-
-This allows the game to continuously apply movement while a key is held down.
+The arrow keys are handled using GLUT special key callbacks. The `B` , `R` and `S` keys are handled using the normal keyboard callbacks.
 
 ---
 
-# 15. Main Game Loop
+# 13. How the Game Works
 
-The game is updated by the GLUT timer function:
-
-```cpp
-void timer(int value)
-```
-
-The timer is called repeatedly using:
+The game starts with the jeep at approximately:
 
 ```cpp
-glutTimerFunc(
-    16,
-    timer,
-    0
-);
+carX = 350.0f;
 ```
 
-Approximately every 16 milliseconds, the game updates its state and redraws the screen.
+The initial game values include:
 
-The timer performs several important tasks:
-
-* Updates time.
-* Reads movement states.
-* Changes car speed.
-* Updates car position.
-* Calculates distance.
-* Decreases fuel.
-* Updates animation time.
-* Updates bridge physics.
-* Updates coins.
-* Checks coin collection.
-* Updates fuel pickups.
-* Checks fuel collection.
-* Checks distance milestones.
-* Updates sparkle particles.
-* Updates floating texts.
-* Checks game-over conditions.
-* Updates dust particles.
-* Updates wheel rotation.
-* Updates camera position.
-* Requests a new frame.
-
-This timer function works as the main game update loop.
-
----
-
-# 16. Car Movement Logic
-
-The car position is mainly controlled by:
-
-```cpp
-carX
+```text
+Fuel = 100
+Time = 60 seconds
+Target Distance = 300 meters
+Speed = 0
 ```
 
-The car speed is controlled by:
-
-```cpp
-speed
-```
-
-When the right arrow is pressed:
-
-```cpp
-speed += 0.12f;
-```
-
-The forward speed is limited so that it does not continuously increase.
-
-The left arrow reduces the speed and allows backward movement.
-
-The Up Arrow provides another acceleration method.
-
-The Down Arrow reduces the current speed.
-
-The `B` key applies stronger braking.
-
-The `S` key activates the boost behaviour and allows a higher maximum speed.
-
-The normal maximum speed is lower than the boost maximum speed.
-
-When no movement key is pressed, the program gradually reduces the speed. This creates a simple slowing-down effect instead of stopping the car immediately.
-
----
-
-# 17. Car Position and Distance
-
-The car position is updated using:
+The player controls the jeep using the keyboard. When the player moves forward, the car position changes:
 
 ```cpp
 carX += speed;
 ```
 
-The car is prevented from moving too far to the left:
+The travelled distance is calculated from the car's world position:
 
 ```cpp
-if (carX < 80)
-{
-    carX = 80;
-    speed = 0;
-}
+distanceTravelled = (carX - 350.0f) * 0.05f;
 ```
 
-The travelled distance is calculated from the car position:
-
-```cpp
-distanceTravelled =
-    (carX - 350.0f) * 0.05f;
-```
-
-The distance is prevented from becoming negative.
-
-This distance value is used for:
-
-* HUD display
-* Progress bar
-* Distance milestones
-* Target distance
-* High score
+The game continuously updates movement, fuel, time, terrain interaction, coins, fuel pickups, bridges, particles, and the HUD. The update process is controlled by the GLUT timer function.
 
 ---
 
-# 18. Fuel System
+# 14. Main Game Loop
 
-Fuel is stored in:
-
-```cpp
-fuel
-```
-
-The initial fuel value is:
+The main game loop is implemented through:
 
 ```cpp
-100.0f
+void timer(int value)
 ```
 
-Fuel decreases when the car moves.
-
-The fuel consumption depends on speed:
+This function is called repeatedly using:
 
 ```cpp
-fuel -= 0.018f * speed;
+glutTimerFunc(16, timer, 0);
 ```
 
-Boost uses additional fuel:
+The value `16` gives an update interval of approximately 16 milliseconds. During each update, the program performs several operations. The timer function:
 
-```cpp
-fuel -= 0.040f * speed;
-```
+1. Reduces the remaining time.
+2. Reads keyboard input.
+3. Changes the car speed.
+4. Updates the car position.
+5. Calculates travelled distance.
+6. Reduces fuel.
+7. Updates animation time.
+8. Updates bridges.
+9. Updates coin spawning.
+10. Checks coins.
+11. Updates fuel spawning.
+12. Checks fuel pickups.
+13. Checks distance targets.
+14. Checks distance milestones.
+15. Updates sparkle particles.
+16. Updates floating text.
+17. Checks game over conditions.
+18. Creates dust particles.
+19. Updates dust.
+20. Updates wheel rotation.
+21. Updates the camera.
+22. Requests another screen redraw.
 
-Fuel is limited so that it cannot become negative.
-
-When fuel reaches zero, the game ends.
-
-The HUD displays the fuel level as a percentage.
+This makes the game continuously animated.
 
 ---
 
-# 19. Fuel Bar
+# 15. Keyboard Input
 
-The fuel bar is drawn inside the HUD.
+The project uses GLUT keyboard callbacks.
 
-The program first clamps the fuel value between:
+## 15.1 Normal Keyboard
 
+The function:
+```cpp
+void keyboard(unsigned char key, int x, int y)
+```
+handles normal keys. The following keys are used:
 ```text
-0
+B / b
+S / s
+R / r
+ESC
 ```
 
-and:
+1. The `B` key activates the brake.
+2. The `S` key activates the boost.
+3. The `R` key resets the game.
+4. The `ESC` key closes the program.
+
+## 15.2 Keyboard Release
+
+The function:
+```cpp
+void keyboardUp(unsigned char key, int x, int y)
+```
+sets the brake and boost states to false when the keys are released.
+
+## 15.3 Arrow Keys
+
+The function:
+```cpp
+void specialKeyDown(int key, int x, int y)
+```
+handles the arrow keys.
+
+The corresponding boolean variables are changed:
+```text
+rightKey
+leftKey
+upKey
+downKey
+```
+
+The function:
+```cpp
+void specialKeyUp(int key, int x, int y)
+```
+sets these variables back to false when the keys are released. This allows the game to know whether a key is currently being pressed.
+
+---
+
+# 16. Car Speed and Movement
+
+The car speed is changed according to the keyboard input. For the right arrow:
+```cpp
+speed += 0.12f;
+```
+
+The forward speed is limited to:
+```text
+6.0
+```
+
+For the left arrow, the speed is reduced and can become negative up to:
+```text
+-4.0
+```
+
+The up arrow provides another acceleration:
+```cpp
+speed += 0.08f;
+```
+
+The down arrow reduces the speed. The brake key applies stronger braking. The boost key increases speed by:
+```cpp
+speed += 0.22f;
+```
+
+and the maximum boost speed is:
+```text
+10.0
+```
+
+When no movement key is pressed, the car gradually slows down instead of stopping immediately. This creates simple acceleration and deceleration behavior.
+
+---
+
+# 17. Fuel System
+
+Fuel is an important part of the game. The initial fuel value is:
 
 ```text
 100
 ```
 
-The width of the filled portion is calculated from the current fuel percentage.
-
-The fuel bar changes its display when the fuel becomes low.
-
-When fuel is at or below 25 percent, the bar blinks to warn the player.
-
-This is implemented using:
+Fuel decreases when the car is moving. The amount depends on the current speed:
 
 ```cpp
-bool lowFuel = clampedFuel <= 25.0f;
+fuel -= 0.018f * speed;
 ```
 
-and an animation-time based blinking condition.
+Additional fuel is consumed when boost is active:
+
+```cpp
+fuel -= 0.040f * speed;
+```
+
+Fuel is limited so that it cannot become negative. The HUD displays the fuel percentage. The fuel bar also changes when fuel becomes low. When fuel is at or below 25 percent, the fuel bar flashes. If fuel reaches zero:
+```cpp
+triggerGameOver(false);
+```
+is called and the game ends.
 
 ---
 
-# 20. Time System
+# 18. Fuel Pickups
 
-The game starts with:
-
-```text
-60 seconds
-```
-
-The timer decreases the remaining time continuously.
-
-The value is stored in:
-
+The game also contains fuel pickup objects. The project uses functions for the fuel system such as:
 ```cpp
-timeLeft
+initializeFuel()
+updateFuelSpawning()
+checkFuelPickups()
+drawFuelPickups()
 ```
-
-The game checks whether the time has reached zero.
-
-If the player has not reached the current target distance, the game ends with a time-up message.
-
-The HUD changes the time text colour when the remaining time becomes low.
+These functions are responsible for creating fuel pickups, checking them during gameplay, and drawing them on the screen. Fuel pickups allow the player to continue travelling without depending only on the starting fuel.
 
 ---
 
-# 21. Target Distance
+# 19. Coin System
 
-The game uses a target distance value:
-
-```cpp
-targetDistance
-```
-
-The initial target is:
-
-```text
-300 m
-```
-
-When the player reaches the current target, the target distance increases by:
-
-```text
-300 m
-```
-
-This gives the game a continuing distance objective.
-
-The target distance is shown in the HUD.
-
----
-
-# 22. Distance Milestones
-
-The project includes a distance milestone system.
-
-The first distance milestone is:
-
-```text
-1000 m
-```
-
-When the player reaches a distance milestone:
-
-* 30 seconds are added.
-* Fuel is restored to 100 percent.
-* Sparkle effects are created.
-* A milestone message is displayed.
-
-For example:
-
-```text
-1000m MILESTONE! +30s
-```
-
-The next milestone is increased by:
-
-```text
-1000 m
-```
-
-This system gives the player an additional reward for travelling longer distances.
-
----
-
-# 23. Coin System
-
-Coins are collected during the game.
-
-The current number of collected coins is stored in:
-
-```cpp
-coinsCollected
-```
-
-The HUD displays the number of coins.
-
-The project also contains a coin milestone system.
-
-When a coin milestone is reached, the player receives:
-
-* Additional coins
-* Full fuel
-* Additional time
-* Sparkle effects
-
-The current milestone logic contains special bonus messages for selected milestones such as:
-
-```text
-100 COINS BONUS!
-```
-
-and:
-
-```text
-300 COINS BONUS!
-```
-
----
-
-# 24. Coin Milestone Function
-
-The function:
-
-```cpp
-checkCoinMilestones()
-```
-
-checks whether the current number of coins has reached the next milestone.
-
-The function uses a `while` loop so that the game can process milestones correctly even if the collected coin count passes more than one threshold.
-
-When a milestone is reached, the program:
-
-1. Saves the reached milestone.
-2. Checks whether a popup should be displayed.
-3. Adds bonus coins.
-4. Restores fuel.
-5. Adds time.
-6. Creates a golden sparkle burst.
-7. Creates a bonus message.
-8. Moves the next milestone forward.
-
----
-
-# 25. Terrain and Hill System
-
-The car does not move on a flat surface.
-
-The program uses terrain height functions to find the ground level below the car.
-
-Functions used by the car include:
-
-```cpp
-getTerrainHeight()
-sampleGroundUnderWheel()
-getBaseTerrainHeight()
-```
-
-The left and right wheels use separate ground values.
-
-The program then calculates the average ground height of the two wheels.
-
-This value is used to position the car body.
-
----
-
-# 26. Car Slope Calculation
-
-The car calculates the difference between the left and right wheel ground positions.
-
-The slope angle is calculated using:
-
-```cpp
-atan2()
-```
-
-The result is converted from radians to degrees.
-
-The calculated angle is used to rotate the car.
-
-Therefore, when the car moves over a hill or slope, the car body changes its orientation according to the terrain.
-
----
-
-# 27. Simple Car Physics
-
-The project includes simple vertical physics for the car.
-
-The following variables are used:
-
-```cpp
-carVerticalOffset
-carVerticalVelocity
-carInAir
-carAirRotation
-```
-
-The car has a spring-like correction force that tries to bring it back to the desired ground position.
-
-The program also applies vertical movement and damping.
-
-The vertical velocity is reduced over time, which prevents the car from moving indefinitely.
-
-If the car is sufficiently above the normal position, it is considered to be in the air.
-
-When the car is in the air, the rotation is updated differently.
-
-When the car is on the ground, the rotation gradually follows the terrain slope.
-
-This produces a simple jumping and landing effect.
-
----
-
-# 28. Wheel System
-
-The car has two wheels.
-
-The wheel drawing is handled by:
-
-```cpp
-drawWheel()
-```
-
-The function receives:
-
-```cpp
-x
-y
-radius
-rotation
-```
-
-Each wheel contains several graphical parts:
-
-* Outer tyre
-* Inner wheel
-* Rim
-* Four spokes
-* Centre hub
-* Rim outline
-
-The wheel is rotated using:
-
-```cpp
-glRotatef()
-```
-
-The wheel rotation is updated using the current speed:
-
-```cpp
-wheelRotation -= speed * 7.0f;
-```
-
-Therefore, the wheels visually rotate while the car moves.
-
----
-
-# 29. Car Drawing
-
-The complete car is drawn using:
-
-```cpp
-drawCar()
-```
-
-The car is made from OpenGL shapes including:
-
-* Polygons
-* Quads
-* Lines
-* Circles
-
-The car has a red body with darker red parts and highlights.
-
-It also contains:
-
-* Windows
-* Headlight
-* Rear light
-* Body details
-* Wheels
-* Fender outlines
-* Shadows
-
-The car is first translated to its screen position.
-
-Then the car is rotated according to the terrain slope or air rotation.
-
-This makes the car appear attached to the hill surface.
-
----
-
-# 30. Camera System
-
-The game uses a horizontal camera system.
-
-The camera position is stored in:
-
-```cpp
-cameraX
-```
-
-The screen position of world objects is calculated using:
-
-```cpp
-screenX = worldX - cameraX;
-```
-
-The camera target is based on the car:
-
-```cpp
-targetCamera =
-    carX - 400.0f;
-```
-
-The camera then moves gradually toward the target instead of instantly changing its position.
-
-This produces smoother camera movement.
-
-As the car travels forward, the world moves across the screen while the car remains near the central area.
-
----
-
-# 31. Bridge System
-
-The game includes bridges and bridge gaps.
-
-The car checks whether a wheel is above a bridge gap using:
-
-```cpp
-isBridgeGap()
-```
-
-If the wheel is on a bridge gap, the program uses:
-
-```cpp
-getBridgeHeight()
-getBridgeWheelClearance()
-```
-
-to calculate the correct wheel height.
-
-Otherwise, the normal terrain height is used.
-
-This allows the car to interact with both normal terrain and bridge sections.
-
-The display function draws the following in order:
-
-```cpp
-drawBridgeGaps();
-drawTerrain();
-drawBridges();
-```
-
----
-
-# 32. Coin and Fuel Pickups
-
-The project contains collectible objects.
-
-The main related functions include:
+Coins are collected during the game. The coin system contains functions such as:
 
 ```cpp
 initializeCoins()
 updateCoinSpawning()
 checkCoins()
-
-initializeFuel()
-updateFuelSpawning()
-checkFuelPickups()
+drawCoins()
 ```
 
-These functions are responsible for:
-
-* Initialising collectible objects
-* Creating or spawning them
-* Updating their state
-* Checking whether the car collects them
-
-The collected objects affect the player's game state.
+These functions manage the creation, drawing, and collection of coins. The collected coin count is shown on the HUD. The coin icon is drawn near the left side of the screen and the current number of collected coins is displayed beside it.
 
 ---
 
-# 33. Dust Particle Effect
+# 20. Coin Milestones
 
-Dust particles are generated near the wheels when the car is moving.
-
-The timer checks:
-
-```cpp
-fabs(speed) > 1.5f
+The game contains special coin milestones. The first milestone starts at:
+```text
+100 coins
 ```
 
-and also checks that the car is not in the air.
-
-Dust is then spawned near the left and right wheel positions.
-
-The related functions are:
-
-```cpp
-spawnDustParticle()
-updateDustParticles()
-drawDustParticles()
+The next important milestone is:
+```text
+300 coins
 ```
 
-The dust gives a visual indication that the wheels are moving over the terrain.
+When a coin milestone is reached, the game:
+
+* Adds bonus coins.
+* Restores fuel to 100.
+* Adds 30 seconds to the remaining time.
+* Creates a sparkle effect.
+
+For the 100 and 300 coin milestones, a bonus message is displayed.
+For example:
+```text
+100 COINS BONUS!
+```
+or:
+```text
+300 COINS BONUS!
+```
+
+The function responsible for this is:
+```cpp
+checkCoinMilestones()
+```
+
+The milestone system continues to increase the next milestone after each reward.
+
+---
+
+# 21. Distance System
+
+The travelled distance is calculated from the car's position. The calculation is:
+```cpp
+distanceTravelled = (carX - 350.0f) * 0.05f;
+```
+The value is prevented from becoming negative. The HUD displays the current distance. The game also has a target distance.
+Initially:
+```text
+Target = 300m
+```
+When the player reaches the current target, another 300 meters is added:
+```cpp
+targetDistance += 300.0f;
+```
+Therefore, the target continues to increase as the player progresses.
+
+---
+
+# 22. Distance Milestones
+
+Distance milestones are checked by:
+```cpp
+checkDistanceMilestones()
+```
+The first distance milestone is:
+```text
+1000m
+```
+After reaching a milestone, the next milestone is increased by:
+```text
+1000m
+```
+At each distance milestone:
+
+* 30 seconds are added.
+* Fuel is restored to 100.
+* Sparkle effects are created.
+* A milestone message is displayed.
+
+For example:
+```text
+1000m MILESTONE! +30s
+```
+The message is displayed using the bonus popup system.
+
+---
+
+# 23. Terrain System
+
+The game is based on a hilly terrain. The car does not simply move on a flat surface. Its vertical position and rotation depend on the terrain under its wheels. The project uses terrain functions such as:
+```cpp
+getTerrainHeight()
+getBaseTerrainHeight()
+sampleGroundUnderWheel()
+```
+
+These functions are used to find the terrain height at different world positions. The car uses two wheels:
+
+```text
+Left Wheel
+Right Wheel
+```
+
+The terrain height under both wheels is checked separately. The average of these values is used to determine the car's vertical position.
+
+---
+
+# 24. Car and Terrain Interaction
+
+Inside `drawCar()`, the ground position under each wheel is calculated. 
+
+For the left wheel:
+
+```cpp
+leftWheelX = carX - wheelDistance;
+```
+
+For the right wheel:
+
+```cpp
+rightWheelX = carX + wheelDistance;
+```
+
+The program checks whether each wheel is over a bridge gap. If it is a bridge gap, the bridge height is used. Otherwise, the normal terrain height is used. This makes the car able to interact with both normal terrain and bridges.
+
+---
+
+# 25. Car Suspension and Vertical Physics
+
+The car has simple vertical physics.
+
+The program calculates:
+
+```cpp
+desiredY
+currentY
+carVerticalVelocity
+carVerticalOffset
+```
+
+The desired car height is based on the average ground position:
+
+```cpp
+desiredY = averageGround + 23.0f;
+```
+
+A spring-like force is then calculated:
+
+```cpp
+springForce = (desiredY - currentY) * 0.22f;
+```
+
+The vertical velocity is updated using this force and a downward force. The velocity is also reduced using damping:
+
+```cpp
+carVerticalVelocity *= 0.84f;
+```
+
+This gives the car a small bouncing and suspension effect while moving over the terrain.
+
+---
+
+# 26. Car Rotation
+
+The car rotation is calculated from the difference between the left and right wheel ground heights. The slope angle is calculated using:
+
+```cpp
+atan2(
+    rightGround - leftGround,
+    2.0f * wheelDistance
+)
+```
+
+This value is converted from radians to degrees. When the car is on the ground, its rotation gradually moves toward the terrain slope:
+
+```cpp
+carAirRotation +=
+    (slopeAngle - carAirRotation) * 0.15f;
+```
+
+This makes the car follow the hill angle.
+
+---
+
+# 27. Airborne Car Movement
+
+The game also checks whether the car is in the air. If the vertical offset becomes large:
+
+```cpp
+if (carVerticalOffset > 7.0f)
+    carInAir = true;
+```
+
+When the car comes close to the ground and its vertical velocity becomes small, it is considered to be on the ground again. While the car is in the air, its rotation changes according to the speed:
+
+```cpp
+carAirRotation += speed * 0.45f;
+```
+
+This gives the car a rotating movement while jumping over hills or gaps.
+
+---
+
+# 28. Wheel System
+
+The wheels are drawn using the function:
+
+```cpp
+drawWheel()
+```
+
+Each wheel contains several parts:
+
+* Outer dark tire
+* Inner ring
+* Light wheel surface
+* Four spokes
+* Center hub
+* Outer rim line
+
+The wheel is rotated using:
+
+```cpp
+glRotatef(rotation, 0, 0, 1);
+```
+
+The wheel rotation is updated in the timer:
+
+```cpp
+wheelRotation -= speed * 7.0f;
+```
+
+Therefore, the wheels rotate according to the car's movement.
+
+---
+
+# 29. Jeep Drawing
+
+The complete jeep is drawn using the function:
+
+```cpp
+drawCar()
+```
+
+The jeep is made from several OpenGL shapes. The body uses polygons and quadrilaterals. The windows are drawn using dark and transparent shapes. The headlights are drawn using circles. The front and rear sections are made using lines and polygons.
+
+The wheels are drawn using:
+
+```cpp
+drawWheel()
+```
+
+The car also has outlines to make the shape easier to see. Before drawing the car, the program uses:
+
+```cpp
+glPushMatrix();
+```
+
+Then the car is moved to its screen position using:
+
+```cpp
+glTranslatef(screenX, currentY, 0);
+```
+
+The car is rotated according to the terrain or air rotation. After drawing, the matrix is restored using:
+
+```cpp
+glPopMatrix();
+```
+
+This is an example of using OpenGL transformations in the project.
+
+---
+
+# 30. Camera System
+
+The game uses a moving camera so that the player can continue travelling to the right without leaving the screen. The camera position is stored in:
+
+```cpp
+cameraX
+```
+
+The target camera position is calculated from the car position:
+
+```cpp
+targetCamera = carX - 400.0f;
+```
+
+The camera does not move instantly. Instead, it gradually moves toward the target:
+
+```cpp
+cameraX +=
+    (targetCamera - cameraX) * 0.08f;
+```
+
+This gives smoother screen movement. World objects are converted to screen coordinates by subtracting `cameraX`. For example:
+
+```cpp
+screenX = worldX - cameraX;
+```
+
+---
+
+# 31. Bridges
+
+The game includes bridge sections. The bridge system uses functions such as:
+
+```cpp
+initializeBridges()
+updateBridgePhysics()
+drawBridges()
+drawBridgeGaps()
+isBridgeGap()
+getBridgeHeight()
+getBridgeWheelClearance()
+```
+
+These functions are used to create and draw bridge areas and to provide special height information for the car wheels. When a wheel is above a bridge gap, the program uses the bridge height instead of the normal terrain height. This allows the car to travel through areas where the normal terrain is interrupted.
+
+---
+
+# 32. Milestone Signs
+
+The game includes distance signs placed along the terrain.
+
+The function:
+
+```cpp
+drawMilestoneSigns()
+```
+
+creates signs at regular intervals.
+
+The spacing is:
+
+```cpp
+const float milestoneSpacing = 750.0f;
+```
+
+The sign displays a distance value such as:
+
+```text
+750m
+1500m
+2250m
+```
+
+The sign is skipped if its position is inside a bridge gap. The sign contains a wooden post, a rectangular sign board, and distance text. This sign is in the code but not shown in window screen.
+
+---
+
+# 33. Coin and Fuel Collection Effects
+
+The game provides visual feedback when important events happen. Sparkle particles are used for events such as:
+
+* Coin milestone rewards
+* Distance milestones
+* Other reward effects
+
+The function:
+
+```cpp
+spawnSparkleBurst()
+```
+
+creates multiple sparkle particles. These particles are updated by:
+
+```cpp
+updateSparkleParticles()
+```
+
+and drawn by:
+
+```cpp
+drawSparkleParticles()
+```
 
 ---
 
 # 34. Sparkle Particle System
 
-The project also contains a sparkle particle system.
+The sparkle particle system uses arrays to store information about each particle. The particle system keeps values such as:
 
-The main functions are:
-
-```cpp
-initializeSparkles()
-spawnSparkleBurst()
-updateSparkleParticles()
-drawSparkleParticles()
+```text
+X position
+Y position
+X velocity
+Y velocity
+Life
+Maximum life
+Size
+Red value
+Green value
+Blue value
+Active state
 ```
 
-Each sparkle has values such as:
+Only active particles are updated. The particle position changes according to its velocity:
 
-* Position
-* Velocity
-* Colour
-* Size
-* Life
-* Maximum life
-* Active state
+```cpp
+sparkleX[i] += sparkleVX[i];
+sparkleY[i] += sparkleVY[i];
+```
 
-The particle position is updated from its velocity.
+The vertical velocity is also changed:
 
-The velocity is also changed over time to create movement.
+```cpp
+sparkleVY[i] -= 0.06f;
+```
 
-The particle life decreases gradually.
+Velocity damping is applied:
 
-When the life reaches zero, the particle becomes inactive.
+```cpp
+sparkleVX[i] *= 0.95f;
+sparkleVY[i] *= 0.97f;
+```
 
-The drawing function uses alpha blending so that the particles can fade out.
-
-Sparkles are used mainly when the player reaches rewards and milestones.
+The particle life decreases over time. When the life reaches zero, the particle becomes inactive. The particle transparency depends on its remaining life.
 
 ---
 
-# 35. Floating Text System
+# 35. Dust Particle System
 
-The project contains floating text effects.
+Dust particles are created behind the wheels when the car is moving. The timer checks:
 
-The related functions are:
+```cpp
+fabs(speed) > 1.5f
+```
+
+and also checks that the car is not in the air. When these conditions are true, dust particles are created near both wheels. The functions used for this system include:
+
+```cpp
+initializeDust()
+spawnDustParticle()
+updateDustParticles()
+drawDustParticles()
+```
+
+This gives a visual effect while the jeep is travelling on the terrain.
+
+---
+
+# 36. Floating Text System
+
+The game has a floating text system for displaying short messages. The main functions are:
 
 ```cpp
 initializeFloatingTexts()
@@ -1004,82 +1028,55 @@ updateFloatingTexts()
 drawFloatingTexts()
 ```
 
-Floating text stores:
+Each floating text has:
 
-* Text content
-* Position
-* Colour
+* X position
+* Y position
+* Text
+* Color
 * Scale
 * Life
 * Maximum life
+* Active state
 * World-space state
 
-The text moves upward during its lifetime.
-
-Its alpha value is calculated from the remaining life.
-
-The text is drawn twice:
-
-1. A darker offset version for a simple shadow.
-2. The main coloured text.
-
-This makes messages easier to see.
-
----
-
-# 36. Milestone Signs
-
-The function:
+The text moves upward over time:
 
 ```cpp
-drawMilestoneSigns()
+floatTextY[i] += 0.9f;
 ```
 
-draws distance signs in the game world.
-
-The signs are placed at regular intervals.
-
-Each sign contains:
-
-* A wooden post
-* A rectangular sign
-* Distance text
-
-The spacing used in the function is:
-
-```text
-750 units
-```
-
-The signs are skipped when they are inside a bridge gap.
-
-The signs also use the camera position to calculate their screen position.
+Its life decreases gradually. When the life reaches zero, the text becomes inactive. The text also becomes transparent as its life decreases.
 
 ---
 
-# 37. Trophy Drawing
+# 37. Bonus Popup System
 
-The function:
+The HUD contains a larger bonus message system. The variable:
 
 ```cpp
-drawTrophy()
+bonusDisplayTimer
 ```
 
-creates a small trophy icon using OpenGL shapes.
+controls how long the message is visible. The message is shown in the center area of the screen. The popup also has:
 
-It contains:
+* Scaling
+* Fading
+* Small movement
+* Color
+* Pulse animation
 
-* Trophy cup
-* Handles
-* Stem
-* Base
-* Highlight
+The pulse is calculated using:
 
-The trophy is used in the HUD beside the best-distance value.
+```cpp
+sin(animationTime * 14.0f)
+```
+
+This creates a small changing scale effect. The popup is used for coin and distance milestone messages.
 
 ---
 
-# 38. HUD
+# 38. HUD System
 
 The HUD is drawn by:
 
@@ -1087,62 +1084,147 @@ The HUD is drawn by:
 drawHUD()
 ```
 
-The HUD displays important game information.
-
-It includes:
+The HUD shows the important game information while playing. It includes:
 
 * Fuel icon
 * Fuel bar
 * Fuel percentage
 * Coin icon
-* Coin count
+* Collected coins
 * Current distance
 * Progress bar
 * Current time
 * Target distance
 * Target flag
-* Best distance trophy
+* Best distance
+* Trophy icon
 * Milestone messages
-* Game-over information
 
-The HUD uses screen coordinates, so it remains fixed while the world camera moves.
+The HUD is drawn using screen coordinates instead of world coordinates. This means that the HUD remains fixed while the camera moves through the game world.
 
 ---
 
-# 39. Progress Bar
+# 39. Fuel Bar
 
-The progress bar shows the player's progress toward the current target distance.
+The fuel bar is drawn using OpenGL quadrilaterals. The current fuel value is first limited between:
 
-The program calculates:
+```text
+0 and 100
+```
+
+The width of the filled part is calculated from the fuel percentage. When fuel is above 25 percent, the bar is shown normally. When fuel is 25 percent or lower, the bar flashes. The flashing is controlled using:
 
 ```cpp
-progress =
-    distanceTravelled / targetDistance;
+fmod(animationTime * 4.0f, 2.0f)
+```
+
+This gives the player a warning that the fuel is low.
+
+---
+
+# 40. Distance Progress Bar
+
+The HUD also contains a progress bar for the current target. The progress is calculated as:
+
+```cpp
+progress = distanceTravelled / targetDistance;
 ```
 
 The value is limited between:
 
 ```text
-0.0
+0 and 1
 ```
 
-and:
-
-```text
-1.0
-```
-
-A line is drawn as the progress bar and a circular marker shows the current progress.
-
-When the target distance increases, the progress starts again toward the new target.
+A small circle is drawn on the progress line to show the current progress. The progress bar and other text are positioned around the center of the screen.
 
 ---
 
-# 40. Game Over System
+# 41. Time System
 
-The project contains two main game-over conditions.
+The game starts with:
 
-### Fuel Empty
+```text
+60 seconds
+```
+
+The timer decreases approximately every 16 milliseconds:
+
+```cpp
+timeLeft -= 0.016f;
+```
+
+The remaining time is displayed on the HUD. The time color changes when the remaining time becomes low. If the time is:
+
+```text
+More than 20 seconds
+```
+
+the normal HUD color is used. When the time is:
+
+```text
+20 seconds or less
+```
+
+the time becomes more noticeable. When the time reaches:
+
+```text
+10 seconds or less
+```
+
+a warning color is used. If the time reaches zero before the target distance is reached, the game ends.
+
+---
+
+# 42. Game Over System
+
+The game has a separate game over state. The main variables are:
+
+```cpp
+gameOver
+timeUp
+```
+
+The function:
+
+```cpp
+triggerGameOver(bool timedOut)
+```
+
+is responsible for ending the game. If the player reaches a new high score, it is stored in:
+
+```cpp
+highScore
+```
+
+The game over screen displays:
+
+```text
+GAME OVER
+```
+
+or:
+
+```text
+TIME UP! GAME OVER
+```
+
+depending on the reason for ending. It also displays:
+
+* Final distance
+* Best distance
+* Total coins
+* Restart instruction
+
+The screen is darkened using a transparent black rectangle.
+
+---
+
+# 43. Game Over Conditions
+
+There are two main game over conditions.
+
+## 43.1 Fuel Empty
 
 If:
 
@@ -1150,9 +1232,9 @@ If:
 fuel <= 0.0f
 ```
 
-the game ends because the car has no fuel.
+the fuel is set to zero and the game ends. The game over reason is not time related.
 
-### Time Up
+## 43.2 Time Finished
 
 If:
 
@@ -1160,75 +1242,23 @@ If:
 timeLeft <= 0.0f
 ```
 
-and the current target has not been reached, the game ends because the available time has finished.
+and the player has not reached the current target distance, the game ends because time has finished. The message becomes:
 
-The function:
-
-```cpp
-triggerGameOver()
+```text
+TIME UP! GAME OVER
 ```
-
-handles the final game-over state.
-
-It also checks whether the current distance is greater than the stored high score.
 
 ---
 
-# 41. High Score
+# 44. Restart System
 
-The game stores the best distance in:
-
-```cpp
-highScore
-```
-
-When the game ends, the current distance is compared with the high score.
-
-If the current distance is higher, the high score is updated.
-
-The best distance is displayed in the HUD using the trophy icon.
-
-It is also shown on the game-over screen.
-
----
-
-# 42. Game Over Screen
-
-When:
-
-```cpp
-gameOver == true
-```
-
-the HUD draws a dark transparent overlay over the game.
-
-The screen displays:
-
-* `GAME OVER` or `TIME UP! GAME OVER`
-* Final distance
-* Best distance
-* Total coins
-* Restart instruction
-
-The player can press:
+The game can be restarted by pressing:
 
 ```text
 R
 ```
 
-to restart the game.
-
----
-
-# 43. Restart System
-
-The restart operation is handled inside:
-
-```cpp
-keyboard()
-```
-
-When the player presses `R`, the important game values are reset.
+The restart code resets the main game values.
 
 For example:
 
@@ -1240,142 +1270,194 @@ fuel = 100.0f;
 distanceTravelled = 0.0f;
 timeLeft = 60.0f;
 targetDistance = 300.0f;
-gameOver = false;
 ```
 
-The game systems are also reinitialised:
+It also resets:
 
-```cpp
-initializeCoins();
-initializeFuel();
-initializeBridges();
-initializeDust();
-initializeSparkles();
-initializeFloatingTexts();
-```
+* Car vertical movement
+* Car rotation
+* Game over state
+* Keyboard states
+* Animation time
+* Coins
+* Fuel pickups
+* Bridges
+* Dust particles
+* Sparkle particles
+* Floating texts
+* Coin milestones
+* Distance milestones
 
-The milestone values are reset as well.
-
-This allows the player to start a new game without closing the program.
+The high score is not reset, so the previous best distance can still be displayed.
 
 ---
 
-# 44. Rendering Process
+# 45. Main Functions and Their Purpose
 
-The main drawing function is:
+The project contains several functions. The main functions and their purposes are listed below.
 
-```cpp
-display()
-```
+| Function                    | Purpose                                             |
+| --------------------------- | --------------------------------------------------- |
+| `init()`                    | Initializes OpenGL settings and game systems        |
+| `main()`                    | Starts GLUT and registers callbacks                 |
+| `display()`                 | Draws the complete game frame                       |
+| `reshape()`                 | Sets the viewport and 2D projection                 |
+| `timer()`                   | Updates the game continuously                       |
+| `keyboard()`                | Handles normal keyboard keys                        |
+| `keyboardUp()`              | Handles normal key release                          |
+| `specialKeyDown()`          | Handles arrow key press                             |
+| `specialKeyUp()`            | Handles arrow key release                           |
+| `triggerGameOver()`         | Changes the game to game over state                 |
+| `drawCar()`                 | Calculates car movement/rotation and draws the jeep |
+| `drawWheel()`               | Draws each wheel                                    |
+| `drawHUD()`                 | Draws all game information                          |
+| `drawMilestoneSigns()`      | Draws distance signs                                |
+| `drawTrophy()`              | Draws the trophy icon                               |
+| `updateSparkleParticles()`  | Updates sparkle movement and life                   |
+| `drawSparkleParticles()`    | Draws sparkle particles                             |
+| `initializeFloatingTexts()` | Resets floating text objects                        |
+| `spawnFloatingText()`       | Creates a floating message                          |
+| `updateFloatingTexts()`     | Moves and fades floating text                       |
+| `drawFloatingTexts()`       | Draws floating text                                 |
+| `checkCoinMilestones()`     | Checks coin rewards                                 |
+| `checkDistanceMilestones()` | Checks distance rewards                             |
 
-The screen is cleared first.
-
-Then the game is drawn in layers.
-
-The current drawing order is:
-
-```cpp
-drawSky();
-drawBridgeGaps();
-drawTerrain();
-drawBridges();
-drawCoins();
-drawFuelPickups();
-drawDustParticles();
-drawCar();
-drawSparkleParticles();
-drawFloatingTexts();
-drawHUD();
-```
-
-This order is important because it controls which objects appear in front of or behind other objects.
-
-For example, the terrain is drawn before the car, so the car appears above the terrain.
-
-The HUD is drawn last so that it stays visible over the game world.
+There are also additional functions for terrain, bridges, coins, fuel, dust, and other game systems.
 
 ---
 
-# 45. OpenGL Transformations Used
+# 46. OpenGL Transformations Used
 
-The project uses OpenGL transformations for drawing different objects.
+The project uses basic OpenGL transformations.
 
-Important functions include:
+## Translation
+
+The jeep is moved to its world/screen position using:
 
 ```cpp
-glPushMatrix();
-glPopMatrix();
-glTranslatef();
-glRotatef();
-glScalef();
+glTranslatef()
 ```
 
-For example, the car is translated to its current screen position and then rotated according to the terrain.
+## Rotation
 
-The wheels are separately translated and rotated.
+The jeep and wheels are rotated using:
 
-The floating text also uses translation and scaling.
+```cpp
+glRotatef()
+```
 
-These transformations are an important part of the graphics implementation.
+## Scaling
+
+Floating text and the trophy use:
+
+```cpp
+glScalef()
+```
+
+## Matrix Management
+
+The program uses:
+
+```cpp
+glPushMatrix()
+glPopMatrix()
+```
+
+to apply transformations to individual objects without affecting other objects. These transformations are important parts of the 2D graphics implementation.
 
 ---
 
-# 46. Alpha Blending
+# 47. Blending and Transparency
 
-The project uses OpenGL blending for transparent effects.
-
-The following settings are used:
+The project uses OpenGL blending for transparent objects. Blending is enabled using:
 
 ```cpp
 glEnable(GL_BLEND);
+```
 
+and the blending function is:
+
+```cpp
 glBlendFunc(
     GL_SRC_ALPHA,
     GL_ONE_MINUS_SRC_ALPHA
 );
 ```
 
-Blending is used for:
+This is used for:
 
-* Particle effects
+* Car window transparency
+* Dust particles
+* Sparkle particles
 * Floating text
-* Car glass
-* Shadows
-* Fuel display
-* Game-over overlay
-* Fading effects
+* Bonus popup
+* Game over background
 
-The alpha value controls the transparency of these objects.
+Alpha values are used to control transparency.
 
 ---
 
-# 47. Anti-Aliasing and Smooth Drawing
+# 48. Anti-Aliasing
 
-The project enables several OpenGL smoothing options.
-
-These include:
+The program enables several OpenGL smoothing features:
 
 ```cpp
-GL_LINE_SMOOTH
-GL_POLYGON_SMOOTH
-GL_POINT_SMOOTH
+glEnable(GL_LINE_SMOOTH);
+glEnable(GL_POLYGON_SMOOTH);
+glEnable(GL_POINT_SMOOTH);
 ```
 
-The program also enables multisampling:
+The project also uses:
 
 ```cpp
 glEnable(GL_MULTISAMPLE);
 ```
 
-These settings are used to make lines and shapes appear smoother.
+These settings help make lines and shapes appear smoother.
 
 ---
 
-# 48. Projection and Window Setup
+# 49. Display Function
 
-The project uses a 2D orthographic projection.
+The main drawing function is:
 
-The projection is created using:
+```cpp
+void display()
+```
+
+It first clears the screen:
+
+```cpp
+glClear(GL_COLOR_BUFFER_BIT);
+```
+
+Then the game objects are drawn in a specific order:
+
+```text
+Sky
+Bridge gaps
+Terrain
+Bridges
+Coins
+Fuel pickups
+Dust particles
+Car
+Sparkle particles
+Floating texts
+HUD
+```
+
+This drawing order is important because objects drawn later can appear in front of earlier objects. Finally, the double-buffered display is updated using:
+
+```cpp
+glutSwapBuffers();
+```
+
+---
+
+# 50. Projection and Window Setup
+
+The project uses a 2D orthographic projection. The projection is created using:
 
 ```cpp
 gluOrtho2D(
@@ -1386,457 +1468,176 @@ gluOrtho2D(
 );
 ```
 
-This allows the program to use simple 2D coordinates for drawing.
-
-The same projection is configured in both:
-
-```cpp
-init()
-```
-
-and:
-
-```cpp
-reshape()
-```
-
-The window size is controlled using:
-
-```cpp
-WINDOW_WIDTH
-WINDOW_HEIGHT
-```
-
----
-
-# 49. Important Functions in the Project
-
-The main functions can be grouped according to their purpose.
-
-## Particle Functions
-
-```cpp
-initializeSparkles()
-spawnSparkleBurst()
-updateSparkleParticles()
-drawSparkleParticles()
-
-initializeFloatingTexts()
-spawnFloatingText()
-updateFloatingTexts()
-drawFloatingTexts()
-
-spawnDustParticle()
-updateDustParticles()
-drawDustParticles()
-```
-
-## Game Reward Functions
-
-```cpp
-checkCoinMilestones()
-checkDistanceMilestones()
-```
-
-## Car Functions
-
-```cpp
-drawWheel()
-drawCar()
-```
-
-## Environment Functions
-
-```cpp
-drawMilestoneSigns()
-drawBridges()
-drawBridgeGaps()
-drawTerrain()
-```
-
-## HUD Functions
-
-```cpp
-drawTrophy()
-drawHUD()
-```
-
-## GLUT Functions
-
-```cpp
-display()
-reshape()
-keyboard()
-keyboardUp()
-specialKeyDown()
-specialKeyUp()
-timer()
-init()
-main()
-```
-
----
-
-# 50. Program Structure
-
-The project can be understood in the following simple structure:
+This makes it easier to use screen-like coordinates for the 2D game. The window size is:
 
 ```text
-main()
- |
- +-- init()
- |
- +-- GLUT callback registration
- |
- +-- timer()
- |    |
- |    +-- keyboard state
- |    +-- car movement
- |    +-- fuel
- |    +-- distance
- |    +-- coins
- |    +-- fuel pickups
- |    +-- bridges
- |    +-- particles
- |    +-- milestones
- |    +-- game-over checks
- |    +-- camera
- |
- +-- display()
-      |
-      +-- sky
-      +-- terrain
-      +-- bridges
-      +-- coins
-      +-- fuel
-      +-- particles
-      +-- car
-      +-- floating text
-      +-- HUD
+1000 x 600
 ```
 
-This is the basic flow of the game.
+The `reshape()` function also resets the viewport and projection if the window is resized.
 
 ---
 
-# 51. Graphics Used in the Project
+# 51. Main Program Setup
 
-The project does not depend on a separate 2D game engine.
+The `main()` function starts GLUT. It performs the following steps:
 
-The main objects are drawn manually using OpenGL primitives.
+1. Initializes GLUT.
+2. Sets the display mode.
+3. Sets the initial window position.
+4. Sets the window size.
+5. Creates the window.
+6. Calls `init()`.
+7. Registers the display callback.
+8. Registers keyboard callbacks.
+9. Registers special key callbacks.
+10. Registers the reshape callback.
+11. Starts the timer.
+12. Enters the GLUT main loop.
 
-Examples include:
+Important GLUT functions used include:
 
-* `GL_QUADS`
-* `GL_POLYGON`
-* `GL_TRIANGLES`
-* `GL_LINES`
-* `GL_LINE_STRIP`
-* `GL_LINE_LOOP`
-* Circles created through drawing functions
-
-This approach was used to understand how 2D objects can be created and transformed using OpenGL.
+```cpp
+glutInit()
+glutInitDisplayMode()
+glutInitWindowSize()
+glutCreateWindow()
+glutDisplayFunc()
+glutKeyboardFunc()
+glutKeyboardUpFunc()
+glutSpecialFunc()
+glutSpecialUpFunc()
+glutReshapeFunc()
+glutTimerFunc()
+glutMainLoop()
+```
 
 ---
 
 # 52. Game Features
 
-The completed game includes the following features:
+The main features of the game are:
 
-1. 2D hilly environment.
-2. Controllable car.
-3. Forward and backward movement.
-4. Acceleration.
-5. Braking.
-6. Boost.
-7. Wheel rotation.
-8. Terrain-based car rotation.
-9. Simple vertical car physics.
+1. 2D jeep driving.
+2. Hilly terrain.
+3. Moving camera.
+4. Keyboard controls.
+5. Forward and backward movement.
+6. Acceleration and braking.
+7. Boost system.
+8. Simple suspension physics.
+9. Car rotation according to terrain slope.
 10. Air rotation.
-11. Camera following the car.
+11. Rotating wheels.
 12. Coins.
 13. Fuel pickups.
 14. Fuel consumption.
-15. Fuel warning.
+15. Low fuel warning.
 16. Time limit.
-17. Distance tracking.
-18. Target distance.
+17. Increasing target distance.
+18. Coin milestones.
 19. Distance milestones.
-20. Coin milestones.
-21. Bonus rewards.
-22. Bridge sections.
-23. Dust particles.
-24. Sparkle particles.
-25. Floating text.
-26. Milestone signs.
-27. Progress bar.
-28. Best-distance tracking.
-29. Game-over screen.
-30. Restart system.
+20. Bonus time.
+21. Fuel restoration at milestones.
+22. Sparkle particle effects.
+23. Dust particle effects.
+24. Floating text.
+25. Bonus popup messages.
+26. Distance signs.
+27. HUD.
+28. Best distance tracking.
+29. Game over screen.
+30. Restart option.
 
 ---
 
-# 53. Preview of the Output
+# 55. Preview of the Output
 
-The repository should contain screenshots showing the running game.
+The following screenshots should be added to the repository to show the final output.
 
-Recommended files:
+## Starting Screen Screenshot
 
-```text
-screenshots/
-    gameplay.png
-    hud.png
-    game-over.png
-```
+![Hill Rider Starting screen](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/starting_screen.PNG)
 
-The README can display them using:
+## Game Over Screenshot
 
-```markdown
-## Gameplay Preview
+![Hill Rider Game Over](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/gameover.PNG)
 
-![Gameplay](screenshots/gameplay.png)
+## Bridge Screen Screenshot
 
-## HUD Preview
+![Hill Rider Bridge](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/bridge_screen.PNG)
 
-![HUD](screenshots/hud.png)
+## GIF
 
-## Game Over Screen
+A short GIF was also  added to show the jeep moving, collecting objects, and interacting with the terrain.
 
-![Game Over](screenshots/game-over.png)
-```
-
-If a GIF is recorded, it can also be added:
-
-```markdown
-## Gameplay GIF
-
-![Gameplay GIF](screenshots/gameplay.gif)
-```
-
-The screenshots should show the actual output of the submitted program.
+![Gameplay GIF]([screenshots/gameplay.gif](https://github.com/sushita01/2D-Hill-Rider-using-GLUT/blob/main/hillrider.gif))
 
 ---
 
-# 54. Suggested Repository Structure
+# 56. Testing
 
-A simple repository structure for this project is:
-
-```text
-HillRider/
-|
-|-- main.cpp
-|-- README.md
-|
-|-- screenshots/
-|   |-- gameplay.png
-|   |-- hud.png
-|   |-- game-over.png
-|   |-- gameplay.gif
-|
-|-- HillRider.cbp
-|
-```
-
-If the Code::Blocks project file has a different name, the actual project file name should be used.
-
-If external DLL files are included in the repository, they should also be clearly identified.
-
----
-
-# 55. How to Upload the Project to GitHub
-
-The project can be uploaded to GitHub using the following steps.
-
-## Step 1: Create a GitHub Repository
-
-Log in to GitHub.
-
-Create a new repository with a suitable name such as:
-
-```text
-2D-Hill-Rider-GLUT
-```
-
-The repository can be public if required by the course submission.
-
-## Step 2: Prepare the Project Folder
-
-Keep the project files together in one folder.
-
-For example:
-
-```text
-HillRider/
-    main.cpp
-    README.md
-    screenshots/
-    HillRider.cbp
-```
-
-## Step 3: Upload the Files
-
-Open the GitHub repository.
-
-Select:
-
-```text
-Add file
-```
-
-Then select:
-
-```text
-Upload files
-```
-
-Drag the project files and folders into the upload area.
-
-Add a commit message such as:
-
-```text
-Add Hill Rider GLUT project
-```
-
-Then commit the files.
-
-## Step 4: Check the Repository
-
-After uploading, make sure the repository contains:
-
-* `main.cpp`
-* `README.md`
-* Code::Blocks project file
-* Screenshots
-* GIF if available
-
-Open `README.md` from GitHub and check that all images are displayed correctly.
-
----
-
-# 56. How to Submit the GitHub Link
-
-After checking the repository:
-
-1. Open the GitHub repository.
-2. Copy the repository link.
-3. Open the Graphics Lab project assignment.
-4. Paste the GitHub repository link into the submission field.
-5. Submit the assignment.
-
-Before submitting, the repository should be opened in a browser to make sure the link works.
-
----
-
-# 57. Testing
-
-The following parts of the game should be tested before submission:
+The project was tested by running the program through Code::Blocks. The following parts were checked during testing:
 
 * Program starts correctly.
-* Car moves with the arrow keys.
+* GLUT window opens.
+* Jeep is visible.
+* Arrow keys control the jeep.
 * Brake works.
 * Boost works.
 * Wheels rotate.
-* Car follows terrain slopes.
-* Camera follows the car.
+* Camera follows the jeep.
+* Terrain affects car rotation.
 * Coins can be collected.
-* Fuel pickups work.
 * Fuel decreases while driving.
-* Low fuel warning appears.
-* Distance increases.
-* Target distance updates.
-* Distance milestones work.
-* Coin bonuses work.
-* Bridge sections work.
-* Dust appears while driving.
-* Sparkles appear after rewards.
-* Floating messages appear.
-* Game-over screen appears.
-* R restarts the game.
-* ESC closes the program.
+* Fuel pickups work.
+* Milestone rewards work.
+* Sparkle effects appear.
+* Dust effects appear.
+* HUD updates during gameplay.
+* Game over works when fuel reaches zero.
+* Game over works when time finishes.
+* Restart works using the `R` key.
 
 ---
 
-# 58. Known Limitations
+# 57. Limitations
 
-This project is a 2D OpenGL/GLUT project made for a Graphics Lab course.
+This project is a simple 2D graphics game made for a Graphics Lab project. Some limitations are:
 
-Some limitations are:
-
-* The physics are simplified rather than being a complete vehicle physics simulation.
-* The game uses basic OpenGL drawing primitives.
-* The terrain and game objects are generated using program logic rather than a full game engine.
-* The project is designed mainly for the Windows and Code::Blocks/MinGW environment used during development.
-* The game does not use a separate physics engine.
+* The graphics are created using basic OpenGL shapes.
+* The physics is simplified and is not intended to be a real vehicle physics simulation.
+* The game does not use a physics engine.
+* The game does not contain a complex sound system.
+* The game does not contain a large menu system.
+* The game uses a fixed logical screen size of 1000 x 600.
+* The game is designed for the Windows and Code::Blocks setup used during development.
 
 These limitations are acceptable for the scope of this Graphics Lab project.
 
 ---
 
-# 59. Learning Outcomes
+# 58. Possible Future Improvements
 
-Through this project, the following topics were practiced:
+If the project is developed further, the following features could be added:
 
-* OpenGL drawing
-* GLUT window creation
-* Keyboard input
-* Animation
-* Timer callbacks
-* 2D transformations
-* Translation
-* Rotation
-* Scaling
-* Alpha blending
-* Orthographic projection
-* Object drawing
-* Basic physics
-* Collision and collection logic
-* Camera movement
-* Particle effects
-* HUD design
-* Game-state management
-
-The project also helped in understanding how different graphics and programming concepts can work together in one interactive application.
+* More types of terrain.
+* More bridge designs.
+* More vehicle designs.
+* Sound effects.
+* Background music.
+* Multiple levels.
+* More types of obstacles.
+* More detailed vehicle physics.
+* A start menu.
+* A pause menu.
+* Additional game modes.
+* More visual effects.
+* Better texture-based graphics.
+* Saveable high scores.
 
 ---
 
-# 60. Conclusion
+# 59. Conclusion
 
-2D Hill Rider using GLUT is a small interactive 2D driving game developed using C++ and OpenGL/GLUT.
-
-The project demonstrates more than simple object drawing. It includes keyboard interaction, animation, car movement, terrain-based rotation, simple physics, camera movement, collectibles, fuel and time management, milestone rewards, particle effects, HUD elements, and a game-over system.
-
-The main purpose of the project is to apply the graphics programming concepts learned in the Graphics Lab in a working interactive program.
-
-The project was developed and tested using Code::Blocks, MinGW, OpenGL, and FreeGLUT.
-
----
-
-# 61. Project Submission Checklist
-
-Before submitting the project, the following items should be checked:
-
-* [ ] GitHub repository is created.
-* [ ] Repository is accessible.
-* [ ] `main.cpp` is uploaded.
-* [ ] Code::Blocks project file is uploaded.
-* [ ] `README.md` is uploaded.
-* [ ] Setup instructions are included.
-* [ ] Build instructions are included.
-* [ ] Run instructions are included.
-* [ ] Game controls are documented.
-* [ ] Project features are documented.
-* [ ] Main functions are explained.
-* [ ] Physics and game logic are explained.
-* [ ] Screenshots are uploaded.
-* [ ] Screenshot links work in README.
-* [ ] Gameplay GIF is uploaded if available.
-* [ ] Group member information is filled in.
-* [ ] Final GitHub link is tested before submission.
-
----
-
-# 62. Final Project Statement
-
-This project was developed as a Graphics Lab project using C++ and GLUT. The main focus was to create an interactive 2D game while applying OpenGL drawing, transformations, animation, keyboard interaction, simple physics, camera movement, and game-state logic.
-
-The implementation was built step by step by combining individual graphics functions with the game update system. Each major part of the program, including the car, terrain, wheels, collectibles, particles, HUD, camera, milestones, and game-over system, is handled through separate functions to keep the program organised and easier to understand.
+2D Hill Rider using GLUT is a 2D driving game developed using C++, OpenGL, and FreeGLUT. The project demonstrates several basic computer graphics concepts. It uses OpenGL primitives to draw the jeep, wheels, terrain-related objects, HUD elements, signs, particles, and other game objects. The project also includes keyboard interaction, object movement, rotation, scaling, transparency, animation, camera movement, and simple physics. The game has a fuel and time system, coins, fuel pickups, milestones, rewards, particle effects, and a game over system. The player needs to control the jeep and travel through the terrain while managing the available fuel and time. The project helped us understand how OpenGL and GLUT can be used to create an interactive 2D application with animation and user input.
