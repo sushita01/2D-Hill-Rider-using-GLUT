@@ -105,7 +105,8 @@ fabs()
 floor()
 ceil()
 fmod()
-`
+`.
+
 These functions are used in terrain calculations, wheel drawing, car rotation, animation, and physics.
 
 ## 6.4 `stdlib.h`
@@ -115,7 +116,8 @@ This header provides functions such as:
 rand()
 srand()
 exit()
-`
+`.
+
 Random number generation is used for different game elements and effects.
 
 ## 6.5 `stdio.h`
@@ -386,6 +388,7 @@ The function:
 `
 void keyboardUp(unsigned char key, int x, int y)
 `
+
 sets the brake and boost states to false when the keys are released.
 
 ## 15.3 Arrow Keys
@@ -394,6 +397,7 @@ The function:
 `
 void specialKeyDown(int key, int x, int y)
 `
+
 handles the arrow keys.
 
 The corresponding boolean variables are changed:
@@ -408,6 +412,7 @@ The function:
 `
 void specialKeyUp(int key, int x, int y)
 `
+
 sets these variables back to false when the keys are released. This allows the game to know whether a key is currently being pressed.
 
 ---
@@ -451,6 +456,7 @@ Fuel is limited so that it cannot become negative. The HUD displays the fuel per
 `
 triggerGameOver(false);
 `
+
 is called and the game ends.
 
 ---
@@ -463,7 +469,8 @@ initializeFuel()
 updateFuelSpawning()
 checkFuelPickups()
 drawFuelPickups()
-`
+`.
+
 These functions are responsible for creating fuel pickups, checking them during gameplay, and drawing them on the screen. Fuel pickups allow the player to continue travelling without depending only on the starting fuel.
 
 ---
@@ -476,7 +483,8 @@ initializeCoins()
 updateCoinSpawning()
 checkCoins()
 drawCoins()
-`
+`.
+
 These functions manage the creation, drawing, and collection of coins. The collected coin count is shown on the HUD. The coin icon is drawn near the left side of the screen and the current number of collected coins is displayed beside it.
 
 ---
@@ -548,7 +556,7 @@ The game is based on a hilly terrain. The car does not simply move on a flat sur
 getTerrainHeight()
 getBaseTerrainHeight()
 sampleGroundUnderWheel()
-`
+`.
 
 These functions are used to find the terrain height at different world positions. The car uses two wheels which are Left Wheel and Right Wheel. The terrain height under both wheels is checked separately. The average of these values is used to determine the car's vertical position.
 
@@ -612,11 +620,13 @@ atan2(
     2.0f * wheelDistance
 )
 `
+
 This value is converted from radians to degrees. When the car is on the ground, its rotation gradually moves toward the terrain slope:
 `
 carAirRotation +=
     (slopeAngle - carAirRotation) * 0.15f;
 `
+
 This makes the car follow the hill angle.
 
 ---
@@ -633,6 +643,7 @@ When the car comes close to the ground and its vertical velocity becomes small, 
 `
 carAirRotation += speed * 0.45f;
 `
+
 This gives the car a rotating movement while jumping over hills or gaps.
 
 ---
@@ -668,14 +679,17 @@ The complete jeep is drawn using the function `drawCar()`. The jeep is made from
 `
 glPushMatrix();
 `
+
 Then the car is moved to its screen position using:
 `
 glTranslatef(screenX, currentY, 0);
 `
+
 The car is rotated according to the terrain or air rotation. After drawing, the matrix is restored using:
 `
 glPopMatrix();
 `
+
 This is an example of using OpenGL transformations in the project.
 
 ---
@@ -711,7 +725,8 @@ drawBridgeGaps()
 isBridgeGap()
 getBridgeHeight()
 getBridgeWheelClearance()
-`
+`.
+
 These functions are used to create and draw bridge areas and to provide special height information for the car wheels. When a wheel is above a bridge gap, the program uses the bridge height instead of the normal terrain height. This allows the car to travel through areas where the normal terrain is interrupted.
 
 ---
@@ -722,16 +737,19 @@ The game includes distance signs placed along the terrain. The function:
 `
 drawMilestoneSigns()
 `
+
 creates signs at regular intervals. The spacing is:
 `
 const float milestoneSpacing = 750.0f;
 `
+
 The sign displays a distance value such as:
 `
 750m
 1500m
 2250m
-`
+`. 
+
 The sign is skipped if its position is inside a bridge gap. The sign contains a wooden post, a rectangular sign board, and distance text. This sign is in the code but not shown in window screen.
 
 ---
@@ -748,10 +766,12 @@ The function:
 `
 spawnSparkleBurst()
 `
+
 creates multiple sparkle particles. These particles are updated by:
 `
 updateSparkleParticles()
 `
+
 and drawn by:
 `
 drawSparkleParticles()
@@ -919,6 +939,7 @@ The game starts with `60 seconds`. The timer decreases approximately every 16 mi
 `
 timeLeft -= 0.016f;
 `
+
 The remaining time is displayed on the HUD. The time color changes when the remaining time becomes low. If the time is `More than 20 seconds`, the normal HUD color is used. When the time is `20 seconds or less`, the time becomes more noticeable. When the time reaches `10 seconds or less`, a warning color is used. If the time reaches zero before the target distance is reached, the game ends.
 
 ---
@@ -1155,7 +1176,6 @@ The `main()` function starts GLUT. It performs the following steps:
 12. Enters the GLUT main loop.
 
 Important GLUT functions used include:
-
 `
 glutInit()
 glutInitDisplayMode()
