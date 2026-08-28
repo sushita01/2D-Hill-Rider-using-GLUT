@@ -60,11 +60,8 @@ The project was developed using Code::Blocks with the MinGW C++ compiler on Wind
 #include <GL/glut.h>
 ```
 
-The project was created as a C++ Console Application in Code::Blocks. The main source code is stored in:
+The project was created as a C++ Console Application in Code::Blocks. The main source code is stored in `main.cpp` file.
 
-```text
-main.cpp
-```
 ---
 
 # 6. Dependencies
@@ -290,17 +287,7 @@ After FreeGLUT has been configured, the project can be built from Code::Blocks.
 3. Make sure the complete source code is present.
 4. Check the FreeGLUT setup.
 5. Check the linker settings.
-6. Select:
-
-```text
-Build -> Build
-```
-
-or press:
-
-```text
-Ctrl + F9
-```
+6. Select: `Build -> Build` or press: `Ctrl + F9`
 
 If there are no compilation errors, Code::Blocks will generate the executable file. The executable is normally generated inside a folder such as:
 
